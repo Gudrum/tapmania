@@ -10,35 +10,65 @@
 @media(max-width:420px){.wrap{padding-inline:12px}.tile{max-height:85px}.game-head{margin-top:6px}}
 
 .game-head #shield{color:var(--mint);font-size:13px;font-weight:800}.prompt.special{border-color:#ffbf69;background:#382548}.tile.cleared{opacity:.25;pointer-events:none}.tile.cleared .key{visibility:hidden}.tile .color-name{position:absolute;bottom:5px;left:5px;font-size:9px;line-height:1.1}.detail{grid-template-columns:repeat(3,1fr)}.detail div{padding-inline:6px}.rules .rule strong{font-size:21px}
+
+.mode-picker{display:flex;gap:10px;margin-top:18px}.mode-picker button{flex:1}.extreme{background:#ff5478;color:#250e1b;box-shadow:0 7px 0 #a93958}.league{margin-top:24px;background:#191d3d;border:1px solid #494d83;border-radius:18px;padding:14px}.league summary{cursor:pointer;font-weight:900}.league label{display:block;margin:12px 0}.league input,.league select{max-width:100%;padding:8px;color:var(--ink);background:var(--bg);border:1px solid #676b99;border-radius:8px}.league ol,.league ul{padding-left:22px}.league li{margin:6px 0;overflow-wrap:anywhere}.league ol strong{float:right;margin-left:8px}.league p,.league li{font-size:13px;color:var(--muted)}.league button:disabled{opacity:.45}.league [hidden]{display:none}.reward-toast{position:fixed;z-index:5;bottom:16px;left:50%;transform:translateX(-50%);background:#ffe07d;color:#27152b;border-radius:12px;padding:10px 16px;width:max-content;max-width:90vw;font-weight:900;pointer-events:none}.reward-toast:empty{display:none}
 </style>
 </head>
 <body><main class="wrap">
 <header class="brand"><div class="logo">⚡ TAP<b>MANÍA</b></div><div class="chip" id="bestChip">🏆 Récord: 0</div></header>
-<section id="home"><div class="hero"><div class="sticker">BURGER BOOM</div><div class="mascot" aria-hidden="true">🍔</div><h1>¡Que no <span>explote!</span></h1><p>Empiezas con 6 segundos. Acierta para ganar tiempo y puntos. Cada acierto devuelve menos tiempo.</p></div><div class="showcase" aria-hidden="true"><span>🐯</span><span>🟣</span><span>⑦</span></div><button class="cta" id="start" style="width:100%;margin-top:19px">🔥 ¡JUGAR AHORA!</button><div class="rules"><div class="rule"><strong>⚡</strong>Errores: −1,2 s</div><div class="rule"><strong>🔥</strong>Combos x5</div><div class="rule"><strong>🎯</strong>Jefes de cocina</div></div></section>
+<section id="home"><div class="hero"><div class="sticker">BURGER BOOM</div><div class="mascot" aria-hidden="true">🍔</div><h1>¡Que no <span>explote!</span></h1><p>Clásico empieza con 6 s. Extremo, con 3,4 s y un jefe cada cinco rondas. Acierta para recargar la mecha.</p></div><div class="showcase" aria-hidden="true"><span>🐯</span><span>🟣</span><span>⑦</span></div><div class="mode-picker"><button class="cta" id="start">Clásico</button><button class="cta extreme" id="startExtreme">⚡ Extremo</button></div><div class="rules"><div class="rule"><strong>⚡</strong>Acierta para recargar</div><div class="rule"><strong>🔥</strong>Combos x5</div><div class="rule"><strong>🎯</strong>Jefes de cocina</div></div></section>
 <section id="game" class="hidden"><div class="game-head"><span class="mode" id="mode">🐾 Animales</span><span class="roundlabel" id="round">Ronda 1</span><span id="shield" hidden>🛡️ Escudo</span><button id="mute" class="mutebtn" aria-label="Activar o desactivar sonido">🔊</button></div><div class="stats"><div class="stat"><span>Puntos</span><strong id="score">0</strong></div><div class="stat"><span>Tiempo</span><strong id="timer">6.0</strong></div><div class="stat"><span>Combo</span><strong id="combo">×1</strong></div></div><div class="fuse" id="fuse" aria-hidden="true"><span id="burger">🍔</span><div class="progress"><div id="bar"></div></div></div><div class="prompt"><div class="eyebrow" id="questionLabel">ENCUENTRA EL MISMO</div><div class="instruction" id="instruction">¿Dónde está?</div><div class="target" id="target">🐼</div><div class="hint" id="hint">¡Toca tan rápido como puedas!</div></div><div class="grid" id="grid" aria-label="Opciones del reto"></div><div class="bottom" id="gameFoot">Racha de 5: 🛡️ bloquea un error · Jefe: +2 s</div></section>
-<section id="end" class="hidden"><div class="result"><div class="trophy" id="trophy" aria-hidden="true">💥</div><div class="sticker" id="endBadge">¡SE ACABÓ LA MECHA!</div><h2 id="endTitle">¡Qué reflejos!</h2><div class="bigscore" id="finalScore">0</div><p id="endText">¡Mejora tu récord!</p></div><div class="detail"><div><strong id="hits">0</strong><small>Aciertos</small></div><div><strong id="maxCombo">0</strong><small>Mejor combo</small></div><div><strong id="survival">0 s</strong><small>Supervivencia</small></div></div><div class="actions"><button class="secondary" id="share">↗ Compartir</button><button class="cta" id="restart">🔁 Otra ronda</button></div></section>
+<section id="end" class="hidden"><div class="result"><div class="trophy" id="trophy" aria-hidden="true">💥</div><div class="sticker" id="endBadge">¡SE ACABÓ LA MECHA!</div><h2 id="endTitle">¡Qué reflejos!</h2><div class="bigscore" id="finalScore">0</div><p id="endText">¡Mejora tu récord!</p></div><div class="detail"><div><strong id="hits">0</strong><small>Aciertos</small></div><div><strong id="maxCombo">0</strong><small>Mejor combo</small></div><div><strong id="survival">0 s</strong><small>Supervivencia</small></div></div><button class="secondary" id="openRanking" type="button">🏆 Guardar en el ranking</button><div class="actions"><button class="secondary" id="homeButton">Cambiar modo</button><button class="secondary" id="share">↗ Compartir</button><button class="cta" id="restart">🔁 Otra ronda</button></div></section>
+
+<details class="league" id="ranking"><summary>🏆 Ranking de amigos y medallas</summary>
+<p>Comparte tu tabla con un enlace. Al abrir el enlace de un amigo, sus marcas se combinan con las tuyas en este navegador.</p>
+<label>Modo <select id="rankMode"><option value="classic">Clásico</option><option value="extreme">Extremo</option></select></label>
+<p id="rankEmpty">Todavía no hay puntuaciones para este modo.</p><ol id="rankList"></ol>
+<label>Tu apodo <input id="playerName" maxlength="24" autocomplete="nickname"></label>
+<button class="secondary" id="saveScore" type="button" disabled>Guardar última partida</button>
+<button class="secondary" id="copyRank" type="button">Copiar enlace</button>
+<input id="rankLink" aria-label="Enlace al ranking" readonly hidden>
+<p id="rankStatus" role="status"></p><ul id="rankMedals" aria-label="Medallas"></ul></details>
+<div class="reward-toast" id="rewardToast" role="status"></div>
 <div class="bottom" id="footer">Creado para jugar con una mano · Sin anuncios</div>
 </main>
+<script src="rewards.js"></script>
 <script>
 (()=>{'use strict';
 const $=id=>document.getElementById(id), colors=[{name:'ROJO',color:'#ff5478'},{name:'AZUL',color:'#61aaff'},{name:'VERDE',color:'#4cddaa'},{name:'AMARILLO',color:'#ffcf5b'},{name:'MORADO',color:'#bb86fa'},{name:'NARANJA',color:'#ffa267'},{name:'ROSA',color:'#ff88c8'},{name:'CELESTE',color:'#62e1ec'}], animals=['🐼','🐯','🐻','🦊','🐸','🐵','🐨','🐷','🐙','🦁','🐰','🐧','🦄','🐮','🐱','🐶','🐹','🦋','🐢','🦖'];
-const fuseLimit=6000, missPenalty=1200;
+const modes={
+  classic:{fuse:6000,penalty:1200,delay:85,bossEvery:8,bossRefill:2000},
+  extreme:{fuse:3400,penalty:1500,delay:40,bossEvery:5,bossRefill:900}
+};
+let mode='classic', rules=modes.classic, rewardTimer;
+function unlock(id){
+  if(!window.tapmaniaRewards.unlock(id))return;
+  clearTimeout(rewardTimer);
+  rewardTimer=setTimeout(()=>$('rewardToast').textContent='',2300);
+}
 const state={playing:false,score:0,combo:0,maxCombo:0,hits:0,round:0,current:-1,sound:true,deadline:0,raf:0,locked:false};
 let audio=null; const pick=a=>a[Math.floor(Math.random()*a.length)]; const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
-const best=()=>{try{return Number(localStorage.getItem('tapmania-burger-best')||0)}catch{return 0}};const save=n=>{try{localStorage.setItem('tapmania-burger-best',String(n))}catch{}};function beep(good){if(!state.sound)return;try{audio??=new (window.AudioContext||window.webkitAudioContext)();audio.resume();const osc=audio.createOscillator(),gain=audio.createGain();osc.connect(gain);gain.connect(audio.destination);osc.type='sine';osc.frequency.setValueAtTime(good?660:180,audio.currentTime);if(good)osc.frequency.exponentialRampToValueAtTime(990,audio.currentTime+.08);gain.gain.setValueAtTime(.09,audio.currentTime);gain.gain.exponentialRampToValueAtTime(.001,audio.currentTime+.13);osc.start();osc.stop(audio.currentTime+.14)}catch{}};
+const best=()=>{try{return Number(localStorage.getItem(mode==='extreme'?'tapmania-extreme-best':'tapmania-burger-best')||0)}catch{return 0}};const save=n=>{try{localStorage.setItem(mode==='extreme'?'tapmania-extreme-best':'tapmania-burger-best',String(n))}catch{}};function beep(good){if(!state.sound)return;try{audio??=new (window.AudioContext||window.webkitAudioContext)();audio.resume();const osc=audio.createOscillator(),gain=audio.createGain();osc.connect(gain);gain.connect(audio.destination);osc.type='sine';osc.frequency.setValueAtTime(good?660:180,audio.currentTime);if(good)osc.frequency.exponentialRampToValueAtTime(990,audio.currentTime+.08);gain.gain.setValueAtTime(.09,audio.currentTime);gain.gain.exponentialRampToValueAtTime(.001,audio.currentTime+.13);osc.start();osc.stop(audio.currentTime+.14)}catch{}};
 function show(view){['home','game','end'].forEach(id=>$(id).classList.toggle('hidden',id!==view))}
 const multiplier=streak=>Math.min(5,1+Math.floor(Math.max(0,streak-1)/3));
-const refill=hits=>Math.max(470,1250-(hits-1)*38);
+const refill=hits=>mode==='extreme' ? Math.max(260,720-(hits-1)*30) : Math.max(470,1250-(hits-1)*38);
 function update(){
   $('score').textContent=state.score.toLocaleString('es');
   $('combo').textContent='×'+multiplier(state.combo);
   $('round').textContent='Ronda '+state.round;
   $('shield').hidden=!state.shield;
 }
-function start(){
+function start(selected){
+  mode=selected;
+  rules=modes[mode];
+  $('ranking').open=false;
+  $('bestChip').textContent='🏆 Récord: '+best().toLocaleString('es');
+  $('gameFoot').textContent=mode==='extreme'
+    ? '⚡ Extremo · Error: −1,5 s · Jefe cada 5 rondas'
+    : 'Racha de 5: 🛡️ bloquea un error · Jefe: hasta +2 s';
   cancelAnimationFrame(state.raf);
   Object.assign(state,{playing:true,score:0,combo:0,maxCombo:0,hits:0,round:0,locked:false,current:-1,shield:false,boss:null,special:false,startedAt:performance.now()});
-  state.deadline=state.startedAt+fuseLimit;
+  state.deadline=state.startedAt+rules.fuse;
   $('burger').textContent='🍔';
   $('fuse').classList.remove('burst','urgent');
   $('grid').inert=false;
@@ -50,7 +80,7 @@ function drawTime(now){
   const left=Math.max(0,state.deadline-now);
   $('timer').textContent=(Math.ceil(left/100)/10).toFixed(1);
   $('timer').style.color=left<1700?'#ff6d93':'';
-  $('bar').style.width=(left/fuseLimit*100)+'%';
+  $('bar').style.width=(left/rules.fuse*100)+'%';
   $('fuse').classList.toggle('urgent',left<1700 && left>0);
   return left;
 }
@@ -66,13 +96,13 @@ function next(){
   if(!state.playing)return;
   state.round++;
   state.locked=false;
-  const type=state.round%8===0?'boss':
+  const type=state.round%rules.bossEvery===0?'boss':
     (['animal','color','number','math','odd'][state.round-1] ??
     pick(['animal','color','number','math','odd']));
   state.special=['math','odd','boss'].includes(type);
   document.querySelector('.prompt').classList.toggle('special',state.special);
   $('mode').textContent=modeNames[type];
-  const cells=state.round>=8?12:9;
+  const cells=(mode==='extreme' || state.round>=8)?12:9;
   let options,answer,instruction,target,hint;
   state.boss=null;
 
@@ -93,7 +123,7 @@ function next(){
     options=shuffle([...foods]);
     state.boss=options.slice(0,3);
     answer=state.boss[0];
-    [instruction,target,hint]=['Arma el pedido en orden',state.boss.join(' '),'Completa los tres ingredientes para ganar 300 puntos base y hasta 2 s'];
+    [instruction,target,hint]=['Arma el pedido en orden',state.boss.join(' '),'300 puntos base y hasta '+(rules.bossRefill/1000).toLocaleString('es')+' s'];
   }else{
     options=shuffle(Array.from({length:25},(_,i)=>i+2)).slice(0,cells);
     answer=pick(options);
@@ -165,26 +195,29 @@ function tap(i,el){
     state.combo++;
     state.maxCombo=Math.max(state.maxCombo,state.combo);
     const gainedShield=!state.shield && state.combo%5===0;
-    if(gainedShield)state.shield=true;
+    if(gainedShield){state.shield=true;unlock('shield')}
+    if(state.boss)unlock('boss');
+    if(state.combo>=15)unlock('streak');
     const base=state.boss?300:state.special?150:100;
     const earned=base*multiplier(state.combo);
-    const added=Math.min(now+fuseLimit-state.deadline,state.boss?2000:refill(state.hits));
+    const added=Math.min(now+rules.fuse-state.deadline,state.boss?rules.bossRefill:refill(state.hits));
     state.score+=earned;
+    if(mode==='extreme' && state.score>=2000)unlock('extreme');
     state.deadline+=added;
     el.classList.add('correct');
     feedback('+'+earned+' · +'+(added/1000).toFixed(1)+' s'+(gainedShield?' · 🛡️':''),true);
     beep(true);
     navigator.vibrate?.(14);
     update();
-    setTimeout(next,85);
+    setTimeout(next,rules.delay);
   }else{
     if(state.shield){
       state.shield=false;
       feedback('🛡️ Error bloqueado',true);
     }else{
       state.combo=0;
-      state.deadline-=missPenalty;
-      feedback('−1,2 s',false);
+      state.deadline-=rules.penalty;
+      feedback('−'+(rules.penalty/1000).toLocaleString('es')+' s',false);
     }
     el.classList.add('wrong');
     beep(false);
@@ -206,13 +239,23 @@ function finish(){
   $('bestChip').textContent='🏆 Récord: '+best().toLocaleString('es');
   $('finalScore').textContent=state.score.toLocaleString('es');
   $('hits').textContent=state.hits;
-  $('survival').textContent=((performance.now()-state.startedAt)/1000).toFixed(1)+' s';
+  const survived=(performance.now()-state.startedAt)/1000;
+  $('survival').textContent=survived.toFixed(1)+' s';
+  if(mode==='extreme' && survived>=30)unlock('survivor');
+  window.tapmaniaRewards.register(mode,state.score);
   $('maxCombo').textContent='×'+multiplier(state.maxCombo);
   $('endBadge').textContent=record?'✨ ¡NUEVO RÉCORD!':'0,0 s';
   $('endTitle').textContent='¡Explotó la hamburguesa!';
   $('endText').textContent='Tu récord es '+best().toLocaleString('es')+' puntos. ¿Puedes superarlo?';
   setTimeout(()=>{show('end');$('restart').focus({preventScroll:true})},650);
 }
-$('start').onclick=start;$('restart').onclick=start;$('mute').onclick=()=>{state.sound=!state.sound;$('mute').textContent=state.sound?'🔊':'🔇'};$('share').onclick=async()=>{const t=`⚡ Logré ${state.score.toLocaleString('es')} puntos en TapManía. ¿Puedes superarme?`;try{if(navigator.share){await navigator.share({title:'TapManía',text:t,url:location.href})}else if(navigator.clipboard){await navigator.clipboard.writeText(t+' '+location.href);$('share').textContent='✅ Copiado';setTimeout(()=>$('share').textContent='↗ Compartir',1700)}}catch{}};$('bestChip').textContent='🏆 Récord: '+best().toLocaleString('es');
+$('start').onclick=()=>start('classic');
+$('startExtreme').onclick=()=>start('extreme');
+$('restart').onclick=()=>start(mode);
+$('openRanking').onclick=()=>{
+  $('ranking').open=true;
+  $('playerName').focus();
+};
+$('homeButton').onclick=()=>{show('home');$('start').focus()};$('mute').onclick=()=>{state.sound=!state.sound;$('mute').textContent=state.sound?'🔊':'🔇'};$('share').onclick=async()=>{const t=`⚡ Logré ${state.score.toLocaleString('es')} puntos en TapManía. ¿Puedes superarme?`;try{if(navigator.share){await navigator.share({title:'TapManía',text:t,url:location.href})}else if(navigator.clipboard){await navigator.clipboard.writeText(t+' '+location.href);$('share').textContent='✅ Copiado';setTimeout(()=>$('share').textContent='↗ Compartir',1700)}}catch{}};$('bestChip').textContent='🏆 Récord: '+best().toLocaleString('es');
 })();
 </script></body></html>

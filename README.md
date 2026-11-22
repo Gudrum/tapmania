@@ -15,3 +15,10 @@ Abre `index.html` para jugar localmente. El juego usa HTML, CSS y JavaScript sin
 - Cada ocho rondas aparece un jefe de cocina. Toca los tres ingredientes en el orden indicado para ganar 300 puntos base y recuperar hasta dos segundos.
 - Por cada cinco aciertos consecutivos recibes un escudo de un uso si no tienes uno activo. Bloquea la penalización y conserva el combo.
 - La pantalla final incluye el tiempo de supervivencia.
+
+## Extremo y ranking de amigos
+
+- Extremo arranca con 3,4 segundos, recargas más cortas, penalizaciones de 1,5 segundos y un jefe cada cinco rondas.
+- Hay cinco medallas permanentes por escudos, jefes, rachas, puntuación y supervivencia.
+- Guarda tu marca con un apodo y copia el enlace del ranking. Cuando un amigo lo abre, su navegador combina las tablas. Pídele que comparta el enlace actualizado para recibir su puntuación.
+- Cada modo tiene su propio top 10. Los enlaces contienen puntuaciones autodeclaradas y la tabla se guarda en el navegador.
