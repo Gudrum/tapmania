@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#0d1025"><meta name="apple-mobile-web-app-capable" content="yes">
+<title>TapManía · Burger Boom</title>
+<style>
+:root{color-scheme:dark;--bg:#0d1025;--pane:#191d3d;--line:#32375e;--ink:#f9f8ff;--muted:#a5acd1;--pink:#ff58af;--yellow:#ffd269;--mint:#57ebc4;--blue:#78a9ff}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;min-height:100%;font-family:ui-rounded,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);overscroll-behavior:none;touch-action:manipulation}body:before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse at 15% 0%,#6c3a9355,transparent 48%),radial-gradient(ellipse at 100% 80%,#254d8b55,transparent 45%);pointer-events:none}.wrap{position:relative;width:min(100%,540px);margin:auto;padding:max(22px,env(safe-area-inset-top)) 18px max(25px,env(safe-area-inset-bottom));min-height:100dvh;display:flex;flex-direction:column}.brand{display:flex;align-items:center;justify-content:space-between;gap:8px}.logo{font-weight:1000;font-size:24px;letter-spacing:-1.3px}.logo b{color:var(--yellow)}.chip{font-size:12px;font-weight:800;color:#e2dcff;border:1px solid #4b4c7c;border-radius:30px;padding:9px 12px;background:#222548}.hero{text-align:center;margin:30px 0 22px}.hero h1{font-size:clamp(34px,9vw,53px);line-height:1.03;margin:12px 0;letter-spacing:-2px}.hero h1 span{color:var(--mint)}.hero p{font-size:15px;color:var(--muted);line-height:1.55;max-width:360px;margin:auto}.sticker{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;background:#393063;border:1px solid #7364b4;border-radius:99px;color:#ffe8ff;font-size:13px;font-weight:900}.mascot{font-size:88px;filter:drop-shadow(0 14px 20px #0006);animation:float 2.5s ease-in-out infinite}.showcase{display:flex;justify-content:center;gap:9px;margin:12px 0}.showcase span{display:grid;place-items:center;width:62px;height:62px;border-radius:20px;font-size:31px;background:#ffffff13;border:1px solid #ffffff28;transform:rotate(-8deg)}.showcase span:nth-child(2){transform:rotate(7deg)}.showcase span:nth-child(3){transform:rotate(-3deg)}.cta{border:0;border-radius:22px;min-height:62px;font-size:19px;font-weight:1000;color:#161027;background:linear-gradient(120deg,#ffd66b,#ff91aa);box-shadow:0 9px 0 #c97673,0 16px 25px #0006;cursor:pointer;transition:transform .08s;letter-spacing:-.3px}.cta:active{transform:translateY(6px);box-shadow:0 3px 0 #c97673}.secondary{border:1px solid #676b99;color:white;background:#262b50;border-radius:17px;padding:12px 18px;font-weight:800;cursor:pointer}.rules{display:flex;justify-content:space-between;gap:7px;margin:33px 0 0}.rule{flex:1;text-align:center;border-radius:16px;padding:13px 7px;background:#ffffff0d;border:1px solid #ffffff17;font-weight:700;font-size:12px;color:#d6dafb}.rule strong{display:block;color:white;font-size:24px;margin-bottom:5px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:25px 0 17px}.stat{background:#ffffff0e;border:1px solid #ffffff1c;border-radius:18px;padding:10px;text-align:center}.stat span{display:block;color:#9fa8d1;text-transform:uppercase;font-size:10px;font-weight:900;letter-spacing:1px}.stat strong{display:block;font-size:25px;font-variant-numeric:tabular-nums;margin-top:2px}.progress{height:10px;border-radius:50px;background:#30345c;overflow:hidden;margin-bottom:17px}.progress div{height:100%;width:100%;background:linear-gradient(90deg,#63edd0,#ffd46b);transition:width .08s linear}.prompt{background:#1f244b;border:1px solid #494d83;border-radius:24px;text-align:center;padding:22px 10px 17px;box-shadow:0 12px 30px #0002}.eyebrow{color:#a9b5e5;font-size:12px;font-weight:1000;letter-spacing:1.5px;text-transform:uppercase}.instruction{font-size:clamp(22px,6vw,31px);font-weight:1000;letter-spacing:-.9px;line-height:1.15;margin:9px 0 4px}.target{height:70px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:53px;font-weight:1000}.target .swatch{display:block;width:52px;height:52px;border-radius:17px;border:4px solid #fff9;box-shadow:inset 0 -6px #0002}.hint{min-height:20px;font-size:12px;color:#9ca8dc;font-weight:700}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin-top:16px}.tile{appearance:none;aspect-ratio:1;border:2px solid #ffffff30;border-radius:24px;display:flex;align-items:center;justify-content:center;position:relative;background:#272d59;font-size:clamp(42px,13vw,68px);font-weight:1000;color:white;text-shadow:0 3px 0 #0002;cursor:pointer;user-select:none;box-shadow:0 7px 0 #10142f;transition:transform .08s,background .1s;touch-action:manipulation}.tile:active{transform:scale(.93) translateY(3px);box-shadow:0 3px 0 #10142f}.tile.correct{background:#2cbf97!important;animation:pop .22s}.tile.wrong{background:#d83d74!important;animation:shake .25s}.tile .dot{height:52%;width:52%;border-radius:22%;border:4px solid #fff7;box-shadow:inset 0 -8px #0002}.tile .emoji{line-height:1}.bottom{margin-top:auto;text-align:center;padding-top:18px;color:#919bc4;font-size:12px}.feedback{position:absolute;left:50%;top:40%;pointer-events:none;color:#ffe07d;font-weight:1000;font-size:32px;z-index:2;text-shadow:0 3px 12px #000;animation:rise .6s forwards}.game-head{display:flex;align-items:center;justify-content:space-between;margin-top:14px}.mode{color:#ffdf92;font-weight:900;font-size:14px}.roundlabel{font-size:13px;color:#b4bce3}.result{padding:35px 0 20px;text-align:center}.result h2{font-size:36px;margin:5px 0 8px;letter-spacing:-1.2px}.result p{color:var(--muted);line-height:1.45}.trophy{font-size:85px;margin:9px 0}.bigscore{font-size:76px;font-weight:1000;line-height:1.15;color:#ffd66b}.detail{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:20px 0}.detail div{background:#22274d;padding:16px;border-radius:18px}.detail strong{font-size:25px;display:block}.detail small{color:#a5acd1;font-weight:700}.hidden{display:none!important}.actions{display:flex;gap:10px;margin-top:20px}.actions>*{flex:1}.mutebtn{border:0;background:none;color:#bdc4e9;font-size:20px;cursor:pointer;padding:9px}@keyframes float{50%{transform:translateY(-10px) rotate(5deg)}}@keyframes pop{50%{transform:scale(1.11)}}@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}@keyframes rise{to{opacity:0;transform:translate(-50%,-90px)}}@media(max-height:720px){.stats{margin:14px 0 10px}.prompt{padding:13px 8px}.target{height:53px;font-size:42px}.target .swatch{height:42px;width:42px}.grid{gap:8px;margin-top:12px}.tile{border-radius:19px}.hero{margin:18px 0}.mascot{font-size:65px}}@media(min-width:550px){.tile{font-size:70px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+
+.fuse{display:flex;align-items:center;gap:10px;margin-bottom:12px}.fuse span{font-size:34px;line-height:1;display:inline-block}.fuse .progress{flex:1;margin:0}.fuse.urgent .progress div{background:#ff5478}.fuse.urgent #burger{animation:shake .24s infinite}.fuse.burst{justify-content:center;min-height:240px}.fuse.burst .progress,.fuse.burst~*{display:none}.fuse.burst #burger{font-size:clamp(80px,25vw,150px);animation:burst .55s ease-out both}@keyframes burst{0%{transform:scale(.45)}45%{transform:scale(1.25)}100%{transform:scale(1)}}.tile:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}.tile .key{position:absolute;bottom:5px;right:7px;color:#d6dafb;font-size:11px}.tile .dot{flex:none}.result{padding-top:20px}
+@media(max-width:420px){.wrap{padding-inline:12px}.tile{max-height:85px}.game-head{margin-top:6px}}
+</style>
+</head>
+<body><main class="wrap">
+<header class="brand"><div class="logo">⚡ TAP<b>MANÍA</b></div><div class="chip" id="bestChip">🏆 Récord: 0</div></header>
+<section id="home"><div class="hero"><div class="sticker">BURGER BOOM</div><div class="mascot" aria-hidden="true">🍔</div><h1>¡Que no <span>explote!</span></h1><p>Empiezas con 6 segundos. Acierta para ganar tiempo y puntos. Cada acierto devuelve menos tiempo.</p></div><div class="showcase" aria-hidden="true"><span>🐯</span><span>🟣</span><span>⑦</span></div><button class="cta" id="start" style="width:100%;margin-top:19px">🔥 ¡JUGAR AHORA!</button><div class="rules"><div class="rule"><strong>⚡</strong>Errores: −1,2 s</div><div class="rule"><strong>🔥</strong>Combos x5</div><div class="rule"><strong>🎯</strong>Dificultad creciente</div></div></section>
+<section id="game" class="hidden"><div class="game-head"><span class="mode" id="mode">🐾 Animales</span><span class="roundlabel" id="round">Ronda 1</span><button id="mute" class="mutebtn" aria-label="Activar o desactivar sonido">🔊</button></div><div class="stats"><div class="stat"><span>Puntos</span><strong id="score">0</strong></div><div class="stat"><span>Tiempo</span><strong id="timer">6.0</strong></div><div class="stat"><span>Combo</span><strong id="combo">×1</strong></div></div><div class="fuse" id="fuse" aria-hidden="true"><span id="burger">🍔</span><div class="progress"><div id="bar"></div></div></div><div class="prompt"><div class="eyebrow" id="questionLabel">ENCUENTRA EL MISMO</div><div class="instruction" id="instruction">¿Dónde está?</div><div class="target" id="target">🐼</div><div class="hint" id="hint">¡Toca tan rápido como puedas!</div></div><div class="grid" id="grid" aria-label="Opciones del reto"></div><div class="bottom" id="gameFoot">✅ +100 puntos base y más tiempo · ❌ −1,2 s</div></section>
+<section id="end" class="hidden"><div class="result"><div class="trophy" id="trophy" aria-hidden="true">💥</div><div class="sticker" id="endBadge">¡SE ACABÓ LA MECHA!</div><h2 id="endTitle">¡Qué reflejos!</h2><div class="bigscore" id="finalScore">0</div><p id="endText">¡Mejora tu récord!</p></div><div class="detail"><div><strong id="hits">0</strong><small>Aciertos</small></div><div><strong id="maxCombo">0</strong><small>Mejor combo</small></div></div><div class="actions"><button class="secondary" id="share">↗ Compartir</button><button class="cta" id="restart">🔁 Otra ronda</button></div></section>
+<div class="bottom" id="footer">Creado para jugar con una mano · Sin anuncios</div>
+</main>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id), colors=[{name:'ROJO',color:'#ff5478'},{name:'AZUL',color:'#61aaff'},{name:'VERDE',color:'#4cddaa'},{name:'AMARILLO',color:'#ffcf5b'},{name:'MORADO',color:'#bb86fa'},{name:'NARANJA',color:'#ffa267'},{name:'ROSA',color:'#ff88c8'},{name:'CELESTE',color:'#62e1ec'}], animals=['🐼','🐯','🐻','🦊','🐸','🐵','🐨','🐷','🐙','🦁','🐰','🐧','🦄','🐮','🐱','🐶','🐹','🦋','🐢','🦖'];
+const fuseLimit=6000, missPenalty=1200;
+const state={playing:false,score:0,combo:0,maxCombo:0,hits:0,round:0,current:-1,sound:true,deadline:0,raf:0,locked:false};
+let audio=null; const pick=a=>a[Math.floor(Math.random()*a.length)]; const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const best=()=>{try{return Number(localStorage.getItem('tapmania-burger-best')||0)}catch{return 0}};const save=n=>{try{localStorage.setItem('tapmania-burger-best',String(n))}catch{}};function beep(good){if(!state.sound)return;try{audio??=new (window.AudioContext||window.webkitAudioContext)();audio.resume();const osc=audio.createOscillator(),gain=audio.createGain();osc.connect(gain);gain.connect(audio.destination);osc.type='sine';osc.frequency.setValueAtTime(good?660:180,audio.currentTime);if(good)osc.frequency.exponentialRampToValueAtTime(990,audio.currentTime+.08);gain.gain.setValueAtTime(.09,audio.currentTime);gain.gain.exponentialRampToValueAtTime(.001,audio.currentTime+.13);osc.start();osc.stop(audio.currentTime+.14)}catch{}};
+function show(view){['home','game','end'].forEach(id=>$(id).classList.toggle('hidden',id!==view))}
+const multiplier=streak=>Math.min(5,1+Math.floor(Math.max(0,streak-1)/3));
+const refill=hits=>Math.max(470,1250-(hits-1)*38);
+function update(){
+  $('score').textContent=state.score.toLocaleString('es');
+  $('combo').textContent='×'+multiplier(state.combo);
+  $('round').textContent='Ronda '+state.round;
+}
+function start(){
+  cancelAnimationFrame(state.raf);
+  Object.assign(state,{playing:true,score:0,combo:0,maxCombo:0,hits:0,round:0,locked:false,current:-1});
+  state.deadline=performance.now()+fuseLimit;
+  $('burger').textContent='🍔';
+  $('fuse').classList.remove('burst','urgent');
+  $('grid').inert=false;
+  show('game');
+  next();
+  tick();
+}
+function drawTime(now){
+  const left=Math.max(0,state.deadline-now);
+  $('timer').textContent=(Math.ceil(left/100)/10).toFixed(1);
+  $('timer').style.color=left<1700?'#ff6d93':'';
+  $('bar').style.width=(left/fuseLimit*100)+'%';
+  $('fuse').classList.toggle('urgent',left<1700 && left>0);
+  return left;
+}
+function tick(){
+  if(!state.playing)return;
+  if(!drawTime(performance.now())){finish();return}
+  state.raf=requestAnimationFrame(tick);
+}
+function next(){if(!state.playing)return;state.round++;state.locked=false;let type=state.round<=3?['animal','color','number'][state.round-1]:pick(['animal','color','number']);$('mode').textContent={animal:'🐾 Animales',color:'🎨 Colores',number:'🔢 Números'}[type];const cells=state.round>7?12:9;let options=[],answer,render;
+if(type==='animal'){const pool=shuffle([...animals]).slice(0,cells);answer=pick(pool);options=pool;render=v=>`<span class="emoji">${v}</span>`;$('questionLabel').textContent='ENCUENTRA EL MISMO ANIMAL';$('instruction').textContent='¡Encuentra su gemelo!';$('target').textContent=answer;$('hint').textContent='Solo uno es exactamente igual'}
+else if(type==='color'){const pool=shuffle([...colors]).slice(0,Math.min(cells,colors.length));answer=pick(pool);options=pool;render=v=>`<span class="dot" style="background:${v.color}"></span>`;$('questionLabel').textContent='TOCA EL COLOR CORRECTO';$('instruction').textContent='¡Toca el color!';$('target').innerHTML=`<span class="swatch" style="background:${answer.color}"></span><span style="font-size:24px">${answer.name}</span>`;$('hint').textContent='¡No te confundas con los otros colores!'}
+else{const pool=shuffle(Array.from({length:25},(_,i)=>i+1)).slice(0,cells);answer=pick(pool);options=pool;render=v=>v;$('questionLabel').textContent='ENCUENTRA EL NÚMERO';$('instruction').textContent='¿Dónde está el número?';$('target').textContent=answer;$('hint').textContent='Lee, localiza y toca rápido'}
+shuffle(options);state.current=options.indexOf(answer);const grid=$('grid');const restoreFocus=grid.contains(document.activeElement);grid.innerHTML='';grid.style.gridTemplateColumns=`repeat(${cells===12?4:3},minmax(0,1fr))`;options.forEach((v,i)=>{let el=document.createElement('button');el.className='tile';el.type='button';el.setAttribute('aria-label',type==='color'?v.name:String(v));el.innerHTML=render(v)+'<span class="key" aria-hidden="true">'+keys[i].toUpperCase()+'</span>';el.addEventListener('click',()=>tap(i,el));grid.appendChild(el)});if(restoreFocus)grid.firstElementChild.focus({preventScroll:true});update()}
+function feedback(text,ok){const el=document.createElement('div');el.className='feedback';el.style.color=ok?'#ffe07d':'#ff829b';el.textContent=text;el.style.transform='translateX(-50%)';$('game').appendChild(el);setTimeout(()=>el.remove(),600)}
+const keys='123456789qwe';
+document.addEventListener('keydown',event=>{
+  if(!state.playing || event.repeat || event.metaKey || event.ctrlKey || event.altKey)return;
+  const tile=$('grid').children[keys.indexOf(event.key.toLowerCase())];
+  if(tile){event.preventDefault();tile.click()}
+});
+function tap(i,el){
+  if(!state.playing||state.locked)return;
+  const now=performance.now();
+  if(now>=state.deadline){drawTime(now);finish();return}
+  if(i===state.current){
+    state.locked=true;
+    state.hits++;
+    state.combo++;
+    state.maxCombo=Math.max(state.maxCombo,state.combo);
+    const earned=100*multiplier(state.combo);
+    const added=Math.min(now+fuseLimit-state.deadline,refill(state.hits));
+    state.score+=earned;
+    state.deadline+=added;
+    el.classList.add('correct');
+    feedback('+'+earned+' · +'+(added/1000).toFixed(1)+' s',true);
+    beep(true);
+    navigator.vibrate?.(14);
+    update();
+    setTimeout(next,85);
+  }else{
+    state.combo=0;
+    state.deadline-=missPenalty;
+    el.classList.add('wrong');
+    feedback('−1,2 s',false);
+    beep(false);
+    navigator.vibrate?.([25,25,25]);
+    update();
+    setTimeout(()=>el.classList.remove('wrong'),240);
+  }
+  if(!drawTime(now))finish();
+}
+function finish(){
+  state.playing=false;
+  cancelAnimationFrame(state.raf);
+  $('grid').inert=true;
+  $('burger').textContent='💥';
+  $('fuse').classList.add('burst');
+  beep(false);
+  const record=state.score>best();
+  if(record)save(state.score);
+  $('bestChip').textContent='🏆 Récord: '+best().toLocaleString('es');
+  $('finalScore').textContent=state.score.toLocaleString('es');
+  $('hits').textContent=state.hits;
+  $('maxCombo').textContent='×'+multiplier(state.maxCombo);
+  $('endBadge').textContent=record?'✨ ¡NUEVO RÉCORD!':'0,0 s';
+  $('endTitle').textContent='¡Explotó la hamburguesa!';
+  $('endText').textContent='Tu récord es '+best().toLocaleString('es')+' puntos. ¿Puedes superarlo?';
+  setTimeout(()=>{show('end');$('restart').focus({preventScroll:true})},650);
+}
+$('start').onclick=start;$('restart').onclick=start;$('mute').onclick=()=>{state.sound=!state.sound;$('mute').textContent=state.sound?'🔊':'🔇'};$('share').onclick=async()=>{const t=`⚡ Logré ${state.score.toLocaleString('es')} puntos en TapManía. ¿Puedes superarme?`;try{if(navigator.share){await navigator.share({title:'TapManía',text:t,url:location.href})}else if(navigator.clipboard){await navigator.clipboard.writeText(t+' '+location.href);$('share').textContent='✅ Copiado';setTimeout(()=>$('share').textContent='↗ Compartir',1700)}}catch{}};$('bestChip').textContent='🏆 Récord: '+best().toLocaleString('es');
+})();
+</script></body></html>
