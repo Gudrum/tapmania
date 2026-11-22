@@ -8,3 +8,10 @@ Juego de reflejos para móvil y escritorio. Encuentra el animal, color o número
 - Juega tocando las fichas o pulsando su tecla visible (1–9, Q, W, E).
 
 Abre `index.html` para jugar localmente. El juego usa HTML, CSS y JavaScript sin dependencias. GitHub Pages sirve la raíz de `main`.
+
+## Retos especiales
+
+- Resuelve sumas y detecta el ingrediente intruso para ganar 150 puntos base.
+- Cada ocho rondas aparece un jefe de cocina. Toca los tres ingredientes en el orden indicado para ganar 300 puntos base y recuperar hasta dos segundos.
+- Por cada cinco aciertos consecutivos recibes un escudo de un uso si no tienes uno activo. Bloquea la penalización y conserva el combo.
+- La pantalla final incluye el tiempo de supervivencia.

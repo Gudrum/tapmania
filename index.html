@@ -8,13 +8,15 @@
 
 .fuse{display:flex;align-items:center;gap:10px;margin-bottom:12px}.fuse span{font-size:34px;line-height:1;display:inline-block}.fuse .progress{flex:1;margin:0}.fuse.urgent .progress div{background:#ff5478}.fuse.urgent #burger{animation:shake .24s infinite}.fuse.burst{justify-content:center;min-height:240px}.fuse.burst .progress,.fuse.burst~*{display:none}.fuse.burst #burger{font-size:clamp(80px,25vw,150px);animation:burst .55s ease-out both}@keyframes burst{0%{transform:scale(.45)}45%{transform:scale(1.25)}100%{transform:scale(1)}}.tile:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}.tile .key{position:absolute;bottom:5px;right:7px;color:#d6dafb;font-size:11px}.tile .dot{flex:none}.result{padding-top:20px}
 @media(max-width:420px){.wrap{padding-inline:12px}.tile{max-height:85px}.game-head{margin-top:6px}}
+
+.game-head #shield{color:var(--mint);font-size:13px;font-weight:800}.prompt.special{border-color:#ffbf69;background:#382548}.tile.cleared{opacity:.25;pointer-events:none}.tile.cleared .key{visibility:hidden}.tile .color-name{position:absolute;bottom:5px;left:5px;font-size:9px;line-height:1.1}.detail{grid-template-columns:repeat(3,1fr)}.detail div{padding-inline:6px}.rules .rule strong{font-size:21px}
 </style>
 </head>
 <body><main class="wrap">
 <header class="brand"><div class="logo">⚡ TAP<b>MANÍA</b></div><div class="chip" id="bestChip">🏆 Récord: 0</div></header>
-<section id="home"><div class="hero"><div class="sticker">BURGER BOOM</div><div class="mascot" aria-hidden="true">🍔</div><h1>¡Que no <span>explote!</span></h1><p>Empiezas con 6 segundos. Acierta para ganar tiempo y puntos. Cada acierto devuelve menos tiempo.</p></div><div class="showcase" aria-hidden="true"><span>🐯</span><span>🟣</span><span>⑦</span></div><button class="cta" id="start" style="width:100%;margin-top:19px">🔥 ¡JUGAR AHORA!</button><div class="rules"><div class="rule"><strong>⚡</strong>Errores: −1,2 s</div><div class="rule"><strong>🔥</strong>Combos x5</div><div class="rule"><strong>🎯</strong>Dificultad creciente</div></div></section>
-<section id="game" class="hidden"><div class="game-head"><span class="mode" id="mode">🐾 Animales</span><span class="roundlabel" id="round">Ronda 1</span><button id="mute" class="mutebtn" aria-label="Activar o desactivar sonido">🔊</button></div><div class="stats"><div class="stat"><span>Puntos</span><strong id="score">0</strong></div><div class="stat"><span>Tiempo</span><strong id="timer">6.0</strong></div><div class="stat"><span>Combo</span><strong id="combo">×1</strong></div></div><div class="fuse" id="fuse" aria-hidden="true"><span id="burger">🍔</span><div class="progress"><div id="bar"></div></div></div><div class="prompt"><div class="eyebrow" id="questionLabel">ENCUENTRA EL MISMO</div><div class="instruction" id="instruction">¿Dónde está?</div><div class="target" id="target">🐼</div><div class="hint" id="hint">¡Toca tan rápido como puedas!</div></div><div class="grid" id="grid" aria-label="Opciones del reto"></div><div class="bottom" id="gameFoot">✅ +100 puntos base y más tiempo · ❌ −1,2 s</div></section>
-<section id="end" class="hidden"><div class="result"><div class="trophy" id="trophy" aria-hidden="true">💥</div><div class="sticker" id="endBadge">¡SE ACABÓ LA MECHA!</div><h2 id="endTitle">¡Qué reflejos!</h2><div class="bigscore" id="finalScore">0</div><p id="endText">¡Mejora tu récord!</p></div><div class="detail"><div><strong id="hits">0</strong><small>Aciertos</small></div><div><strong id="maxCombo">0</strong><small>Mejor combo</small></div></div><div class="actions"><button class="secondary" id="share">↗ Compartir</button><button class="cta" id="restart">🔁 Otra ronda</button></div></section>
+<section id="home"><div class="hero"><div class="sticker">BURGER BOOM</div><div class="mascot" aria-hidden="true">🍔</div><h1>¡Que no <span>explote!</span></h1><p>Empiezas con 6 segundos. Acierta para ganar tiempo y puntos. Cada acierto devuelve menos tiempo.</p></div><div class="showcase" aria-hidden="true"><span>🐯</span><span>🟣</span><span>⑦</span></div><button class="cta" id="start" style="width:100%;margin-top:19px">🔥 ¡JUGAR AHORA!</button><div class="rules"><div class="rule"><strong>⚡</strong>Errores: −1,2 s</div><div class="rule"><strong>🔥</strong>Combos x5</div><div class="rule"><strong>🎯</strong>Jefes de cocina</div></div></section>
+<section id="game" class="hidden"><div class="game-head"><span class="mode" id="mode">🐾 Animales</span><span class="roundlabel" id="round">Ronda 1</span><span id="shield" hidden>🛡️ Escudo</span><button id="mute" class="mutebtn" aria-label="Activar o desactivar sonido">🔊</button></div><div class="stats"><div class="stat"><span>Puntos</span><strong id="score">0</strong></div><div class="stat"><span>Tiempo</span><strong id="timer">6.0</strong></div><div class="stat"><span>Combo</span><strong id="combo">×1</strong></div></div><div class="fuse" id="fuse" aria-hidden="true"><span id="burger">🍔</span><div class="progress"><div id="bar"></div></div></div><div class="prompt"><div class="eyebrow" id="questionLabel">ENCUENTRA EL MISMO</div><div class="instruction" id="instruction">¿Dónde está?</div><div class="target" id="target">🐼</div><div class="hint" id="hint">¡Toca tan rápido como puedas!</div></div><div class="grid" id="grid" aria-label="Opciones del reto"></div><div class="bottom" id="gameFoot">Racha de 5: 🛡️ bloquea un error · Jefe: +2 s</div></section>
+<section id="end" class="hidden"><div class="result"><div class="trophy" id="trophy" aria-hidden="true">💥</div><div class="sticker" id="endBadge">¡SE ACABÓ LA MECHA!</div><h2 id="endTitle">¡Qué reflejos!</h2><div class="bigscore" id="finalScore">0</div><p id="endText">¡Mejora tu récord!</p></div><div class="detail"><div><strong id="hits">0</strong><small>Aciertos</small></div><div><strong id="maxCombo">0</strong><small>Mejor combo</small></div><div><strong id="survival">0 s</strong><small>Supervivencia</small></div></div><div class="actions"><button class="secondary" id="share">↗ Compartir</button><button class="cta" id="restart">🔁 Otra ronda</button></div></section>
 <div class="bottom" id="footer">Creado para jugar con una mano · Sin anuncios</div>
 </main>
 <script>
@@ -31,11 +33,12 @@ function update(){
   $('score').textContent=state.score.toLocaleString('es');
   $('combo').textContent='×'+multiplier(state.combo);
   $('round').textContent='Ronda '+state.round;
+  $('shield').hidden=!state.shield;
 }
 function start(){
   cancelAnimationFrame(state.raf);
-  Object.assign(state,{playing:true,score:0,combo:0,maxCombo:0,hits:0,round:0,locked:false,current:-1});
-  state.deadline=performance.now()+fuseLimit;
+  Object.assign(state,{playing:true,score:0,combo:0,maxCombo:0,hits:0,round:0,locked:false,current:-1,shield:false,boss:null,special:false,startedAt:performance.now()});
+  state.deadline=state.startedAt+fuseLimit;
   $('burger').textContent='🍔';
   $('fuse').classList.remove('burst','urgent');
   $('grid').inert=false;
@@ -56,11 +59,83 @@ function tick(){
   if(!drawTime(performance.now())){finish();return}
   state.raf=requestAnimationFrame(tick);
 }
-function next(){if(!state.playing)return;state.round++;state.locked=false;let type=state.round<=3?['animal','color','number'][state.round-1]:pick(['animal','color','number']);$('mode').textContent={animal:'🐾 Animales',color:'🎨 Colores',number:'🔢 Números'}[type];const cells=state.round>7?12:9;let options=[],answer,render;
-if(type==='animal'){const pool=shuffle([...animals]).slice(0,cells);answer=pick(pool);options=pool;render=v=>`<span class="emoji">${v}</span>`;$('questionLabel').textContent='ENCUENTRA EL MISMO ANIMAL';$('instruction').textContent='¡Encuentra su gemelo!';$('target').textContent=answer;$('hint').textContent='Solo uno es exactamente igual'}
-else if(type==='color'){const pool=shuffle([...colors]).slice(0,Math.min(cells,colors.length));answer=pick(pool);options=pool;render=v=>`<span class="dot" style="background:${v.color}"></span>`;$('questionLabel').textContent='TOCA EL COLOR CORRECTO';$('instruction').textContent='¡Toca el color!';$('target').innerHTML=`<span class="swatch" style="background:${answer.color}"></span><span style="font-size:24px">${answer.name}</span>`;$('hint').textContent='¡No te confundas con los otros colores!'}
-else{const pool=shuffle(Array.from({length:25},(_,i)=>i+1)).slice(0,cells);answer=pick(pool);options=pool;render=v=>v;$('questionLabel').textContent='ENCUENTRA EL NÚMERO';$('instruction').textContent='¿Dónde está el número?';$('target').textContent=answer;$('hint').textContent='Lee, localiza y toca rápido'}
-shuffle(options);state.current=options.indexOf(answer);const grid=$('grid');const restoreFocus=grid.contains(document.activeElement);grid.innerHTML='';grid.style.gridTemplateColumns=`repeat(${cells===12?4:3},minmax(0,1fr))`;options.forEach((v,i)=>{let el=document.createElement('button');el.className='tile';el.type='button';el.setAttribute('aria-label',type==='color'?v.name:String(v));el.innerHTML=render(v)+'<span class="key" aria-hidden="true">'+keys[i].toUpperCase()+'</span>';el.addEventListener('click',()=>tap(i,el));grid.appendChild(el)});if(restoreFocus)grid.firstElementChild.focus({preventScroll:true});update()}
+const foods=['🍟','🧀','🥓','🍅','🥬','🥒','🧅','🍳'];
+const modeNames={animal:'🐾 Animales',color:'🎨 Colores',number:'🔢 Números',math:'➕ Cálculo',odd:'🔍 Intruso',boss:'🔥 Jefe de cocina'};
+
+function next(){
+  if(!state.playing)return;
+  state.round++;
+  state.locked=false;
+  const type=state.round%8===0?'boss':
+    (['animal','color','number','math','odd'][state.round-1] ??
+    pick(['animal','color','number','math','odd']));
+  state.special=['math','odd','boss'].includes(type);
+  document.querySelector('.prompt').classList.toggle('special',state.special);
+  $('mode').textContent=modeNames[type];
+  const cells=state.round>=8?12:9;
+  let options,answer,instruction,target,hint;
+  state.boss=null;
+
+  if(type==='animal'){
+    options=shuffle([...animals]).slice(0,cells);
+    answer=pick(options);
+    [instruction,target,hint]=['Encuentra su gemelo',answer,'Toca el mismo animal'];
+  }else if(type==='color'){
+    options=shuffle([...colors]);
+    answer=pick(options);
+    [instruction,target,hint]=['Toca el color indicado',answer.name,'Guíate por el color o su nombre'];
+  }else if(type==='odd'){
+    const repeated=pick(foods);
+    answer=pick(foods.filter(food=>food!==repeated));
+    options=[...Array(cells-1).fill(repeated),answer];
+    [instruction,target,hint]=['Encuentra al intruso',repeated,'Toca el ingrediente diferente'];
+  }else if(type==='boss'){
+    options=shuffle([...foods]);
+    state.boss=options.slice(0,3);
+    answer=state.boss[0];
+    [instruction,target,hint]=['Arma el pedido en orden',state.boss.join(' '),'Completa los tres ingredientes para ganar 300 puntos base y hasta 2 s'];
+  }else{
+    options=shuffle(Array.from({length:25},(_,i)=>i+2)).slice(0,cells);
+    answer=pick(options);
+    if(type==='math'){
+      const first=Math.floor(Math.random()*(answer-1))+1;
+      [instruction,target,hint]=['Resuelve la suma',first+' + '+(answer-first),'Toca el resultado'];
+    }else{
+      [instruction,target,hint]=['Encuentra el número',answer,'Toca el número indicado'];
+    }
+  }
+
+  shuffle(options);
+  state.current=options.indexOf(answer);
+  $('questionLabel').textContent=state.special?'RONDA ESPECIAL':'REFLEJOS';
+  $('instruction').textContent=instruction;
+  $('target').textContent=target;
+  $('target').style.fontSize=type==='color'?'clamp(24px,7vw,42px)':'';
+  $('hint').textContent=hint;
+  const grid=$('grid');
+  const restoreFocus=grid.contains(document.activeElement);
+  grid.replaceChildren();
+  grid.style.gridTemplateColumns='repeat('+((cells===12 || options.length===8)?4:3)+',minmax(0,1fr))';
+  options.forEach((value,index)=>{
+    const tile=document.createElement('button');
+    tile.className='tile';
+    tile.type='button';
+    tile.dataset.value=type==='color'?value.name:String(value);
+    tile.setAttribute('aria-label',tile.dataset.value);
+    tile.innerHTML=type==='color'
+      ? '<span class="dot" style="background:'+value.color+'"></span><span class="color-name">'+value.name+'</span>'
+      : '<span class="emoji">'+value+'</span>';
+    const key=document.createElement('span');
+    key.className='key';
+    key.setAttribute('aria-hidden','true');
+    key.textContent=keys[index].toUpperCase();
+    tile.appendChild(key);
+    tile.addEventListener('click',()=>tap(index,tile));
+    grid.appendChild(tile);
+  });
+  if(restoreFocus)grid.firstElementChild.focus({preventScroll:true});
+  update();
+}
 function feedback(text,ok){const el=document.createElement('div');el.className='feedback';el.style.color=ok?'#ffe07d':'#ff829b';el.textContent=text;el.style.transform='translateX(-50%)';$('game').appendChild(el);setTimeout(()=>el.remove(),600)}
 const keys='123456789qwe';
 document.addEventListener('keydown',event=>{
@@ -69,29 +144,49 @@ document.addEventListener('keydown',event=>{
   if(tile){event.preventDefault();tile.click()}
 });
 function tap(i,el){
-  if(!state.playing||state.locked)return;
+  if(!state.playing||state.locked||el.disabled)return;
   const now=performance.now();
   if(now>=state.deadline){drawTime(now);finish();return}
   if(i===state.current){
+    if(state.boss){
+      state.boss.shift();
+      if(state.boss.length){
+        el.classList.add('cleared');
+        el.disabled=true;
+        const tiles=[...$('grid').children];
+        state.current=tiles.findIndex(tile=>tile.dataset.value===state.boss[0]);
+        $('target').textContent=state.boss.join(' ');
+        beep(true);
+        return;
+      }
+    }
     state.locked=true;
     state.hits++;
     state.combo++;
     state.maxCombo=Math.max(state.maxCombo,state.combo);
-    const earned=100*multiplier(state.combo);
-    const added=Math.min(now+fuseLimit-state.deadline,refill(state.hits));
+    const gainedShield=!state.shield && state.combo%5===0;
+    if(gainedShield)state.shield=true;
+    const base=state.boss?300:state.special?150:100;
+    const earned=base*multiplier(state.combo);
+    const added=Math.min(now+fuseLimit-state.deadline,state.boss?2000:refill(state.hits));
     state.score+=earned;
     state.deadline+=added;
     el.classList.add('correct');
-    feedback('+'+earned+' · +'+(added/1000).toFixed(1)+' s',true);
+    feedback('+'+earned+' · +'+(added/1000).toFixed(1)+' s'+(gainedShield?' · 🛡️':''),true);
     beep(true);
     navigator.vibrate?.(14);
     update();
     setTimeout(next,85);
   }else{
-    state.combo=0;
-    state.deadline-=missPenalty;
+    if(state.shield){
+      state.shield=false;
+      feedback('🛡️ Error bloqueado',true);
+    }else{
+      state.combo=0;
+      state.deadline-=missPenalty;
+      feedback('−1,2 s',false);
+    }
     el.classList.add('wrong');
-    feedback('−1,2 s',false);
     beep(false);
     navigator.vibrate?.([25,25,25]);
     update();
@@ -111,6 +206,7 @@ function finish(){
   $('bestChip').textContent='🏆 Récord: '+best().toLocaleString('es');
   $('finalScore').textContent=state.score.toLocaleString('es');
   $('hits').textContent=state.hits;
+  $('survival').textContent=((performance.now()-state.startedAt)/1000).toFixed(1)+' s';
   $('maxCombo').textContent='×'+multiplier(state.maxCombo);
   $('endBadge').textContent=record?'✨ ¡NUEVO RÉCORD!':'0,0 s';
   $('endTitle').textContent='¡Explotó la hamburguesa!';
